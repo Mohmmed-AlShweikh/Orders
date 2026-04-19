@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "342758198712",
+    "project_id": "ordersapp-135b0",
+    "storage_bucket": "ordersapp-135b0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:342758198712:android:c0b8b9eb76fc395cb0d34d",
+        "android_client_info": {
+          "package_name": "com.example.orders"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKQDd5J_5eeXw8Dc3oQP1I9S6hPDKxFS4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
