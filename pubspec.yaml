@@ -45,6 +45,8 @@ dependencies:
   firebase_storage: ^13.3.0
   cloud_firestore: ^6.3.0
   image_picker: ^1.2.1
+  cached_network_image: ^3.2.3
+  flutter_localization: any
 
 dev_dependencies:
   flutter_test:

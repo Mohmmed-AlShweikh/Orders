@@ -75,6 +75,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                                     email.text.trim(),
                                     password.text.trim(),
                                   );
+                                  
 
                               /// ❌ لا تعمل navigation هنا
                               /// router لحاله رح ينقلك

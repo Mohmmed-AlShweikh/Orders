@@ -1,9 +1,12 @@
+import 'package:orders/features/auth/data/user_role.dart';
+
 class AppUser {
   final String uid;
   final String name;
   final String email;
   final String phone;
   final String? imageUrl;
+  final UserRole role; // 🔥 جديد
 
   AppUser({
     required this.uid,
@@ -11,6 +14,7 @@ class AppUser {
     required this.email,
     required this.phone,
     this.imageUrl,
+    required this.role,
   });
 
   factory AppUser.fromMap(Map<String, dynamic> map) {
@@ -20,6 +24,10 @@ class AppUser {
       email: map['email'],
       phone: map['phone'],
       imageUrl: map['imageUrl'],
+      role: UserRole.values.firstWhere(
+        (e) => e.name == map['role'],
+        orElse: () => UserRole.buyer,
+      ),
     );
   }
 
@@ -30,6 +38,7 @@ class AppUser {
       'email': email,
       'phone': phone,
       'imageUrl': imageUrl,
+      'role': role.name,
     };
   }
 
@@ -37,6 +46,7 @@ class AppUser {
     String? name,
     String? phone,
     String? imageUrl,
+    UserRole? role,
   }) {
     return AppUser(
       uid: uid,
@@ -44,6 +54,7 @@ class AppUser {
       email: email,
       phone: phone ?? this.phone,
       imageUrl: imageUrl ?? this.imageUrl,
+      role: role ?? this.role,
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:orders/features/auth/data/user_role.dart';
 import '../provider/auth_provider.dart';
 import '../data/user_model.dart';
 
@@ -18,6 +19,8 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
   final phone = TextEditingController();
   final email = TextEditingController();
   final password = TextEditingController();
+    UserRole selectedRole = UserRole.buyer; // 🔥 جديد
+
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +64,37 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                   _field(email, "Email"),
                   _field(password, "Password", true),
 
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
+                   Container(
+                    margin: const EdgeInsets.only(bottom: 20),
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: Colors.white10,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Column(
+                      children: [
+                        RadioListTile<UserRole>(
+                          value: UserRole.buyer,
+                          groupValue: selectedRole,
+                          title: const Text("Buyer",
+                              style: TextStyle(color: Colors.white)),
+                          onChanged: (v) {
+                            setState(() => selectedRole = v!);
+                          },
+                        ),
+                        RadioListTile<UserRole>(
+                          value: UserRole.seller,
+                          groupValue: selectedRole,
+                          title: const Text("Seller",
+                              style: TextStyle(color: Colors.white)),
+                          onChanged: (v) {
+                            setState(() => selectedRole = v!);
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
 
                   SizedBox(
                     width: double.infinity,
@@ -77,11 +110,14 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                                 name: name.text.trim(),
                                 phone: phone.text.trim(),
                                 email: email.text.trim(),
+                                role: selectedRole,
                               );
 
                               await ref
                                   .read(authControllerProvider.notifier)
                                   .register(user, password.text.trim());
+
+                                  
 
                               /// ❌ لا تعمل context.go
                               /// router لحاله يتصرف حسب الحالة
