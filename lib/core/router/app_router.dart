@@ -3,8 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:orders/core/router/router_refresh.dart';
-import 'package:orders/features/auth/provider/auth_provider.dart';
-
 import 'package:orders/features/auth/screen/login_screen.dart';
 import 'package:orders/features/auth/screen/register_screen.dart';
 import 'package:orders/features/auth/screen/splash_screen.dart';
@@ -38,10 +36,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       final isLogin = location == '/login';
       final isRegister = location == '/register';
 
-      // 🟡 لا توقف على loading
-      if (auth.currentUser == null && auth.authStateChanges() == null) {
-        return null;
-      }
+
 
       // 🟣 Splash
       if (isSplash) {
