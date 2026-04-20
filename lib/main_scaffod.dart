@@ -11,11 +11,15 @@ class MainScaffold extends StatefulWidget {
 }
 
 class _MainScaffoldState extends State<MainScaffold> {
+
   int getCurrentIndex(BuildContext context) {
     final location = GoRouterState.of(context).location;
 
-    if (location.startsWith('/profile')) return 1;
-    if (location.startsWith('/settings')) return 2;
+    if (location.startsWith('/home')) return 0;
+    if (location.startsWith('/chat')) return 1;
+    if (location.startsWith('/profile')) return 2;
+    if (location.startsWith('/settings')) return 3;
+
     return 0;
   }
 
@@ -25,9 +29,12 @@ class _MainScaffoldState extends State<MainScaffold> {
         context.go('/home');
         break;
       case 1:
-        context.go('/profile');
+        context.go('/chat');
         break;
       case 2:
+        context.go('/profile');
+        break;
+      case 3:
         context.go('/settings');
         break;
     }
@@ -39,11 +46,13 @@ class _MainScaffoldState extends State<MainScaffold> {
 
     return Scaffold(
       body: widget.child,
-
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
-          boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 10)],
+          boxShadow: [
+            BoxShadow(color: Colors.black26, blurRadius: 10)
+          ],
         ),
+
         child: BottomNavigationBar(
           currentIndex: index,
           onTap: (i) => onTap(i, context),
@@ -56,10 +65,17 @@ class _MainScaffoldState extends State<MainScaffold> {
               icon: Icon(Icons.home_rounded),
               label: "Home",
             ),
+
+            BottomNavigationBarItem(
+              icon: Icon(Icons.chat_bubble_outline),
+              label: "Chat",
+            ),
+
             BottomNavigationBarItem(
               icon: Icon(Icons.person_rounded),
               label: "Profile",
             ),
+
             BottomNavigationBarItem(
               icon: Icon(Icons.settings_rounded),
               label: "Settings",
@@ -67,6 +83,7 @@ class _MainScaffoldState extends State<MainScaffold> {
           ],
         ),
       ),
+      
     );
   }
 }

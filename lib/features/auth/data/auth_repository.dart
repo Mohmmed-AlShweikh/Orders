@@ -55,7 +55,11 @@ Future<void> updateUser(AppUser user) async {
 
     final uid = result.user!.uid;
 
-    final userMap = {...user.toMap(), 'uid': uid};
+    final userMap = {
+    ...user.toMap(),
+    'uid': uid,
+    'role': user.role.name, // 👈 هذا أهم سطر
+  };
 
     await _firestore
         .collection('users')
