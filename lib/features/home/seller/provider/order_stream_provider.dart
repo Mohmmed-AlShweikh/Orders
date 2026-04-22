@@ -16,6 +16,14 @@ final sellerOrdersProvider =
   });
 });
 
+final orderByIdProvider = StreamProvider.family((ref, String orderId) {
+  return FirebaseFirestore.instance
+      .collection('orders')
+      .doc(orderId)
+      .snapshots()
+      .map((doc) => Orders.fromMap(doc.data()!));
+});
+
 
 final orderRepoProvider = Provider<OrderRepository>((ref) {
   return OrderRepository();

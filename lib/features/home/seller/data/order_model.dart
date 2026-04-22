@@ -1,6 +1,7 @@
 class Orders {
   final String id;
   final String productId;
+  final String productTitle;
   final String buyerId;
   final String sellerId;
   final double price;
@@ -10,6 +11,7 @@ class Orders {
   Orders({
     required this.id,
     required this.productId,
+    required this.productTitle,
     required this.buyerId,
     required this.sellerId,
     required this.price,
@@ -25,6 +27,7 @@ class Orders {
       'sellerId': sellerId,
       'price': price,
       'status': status,
+        'productTitle': productTitle,
       'createdAt': createdAt.toIso8601String(),
     };
   }
@@ -33,6 +36,7 @@ class Orders {
     return Orders(
       id: map['id'],
       productId: map['productId'],
+      productTitle: map['productTitle'],
       buyerId: map['buyerId'],
       sellerId: map['sellerId'],
       price: map['price'],

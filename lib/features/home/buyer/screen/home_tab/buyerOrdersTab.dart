@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:orders/features/auth/provider/auth_provider.dart';
+import 'package:orders/features/chat/provider/chat_repository.dart';
 import 'package:orders/features/home/buyer/provider/order_provider.dart';
 import 'package:orders/features/home/seller/provider/order_controller.dart';
 
@@ -143,15 +144,7 @@ class BuyerOrdersTab extends ConsumerWidget {
       );
     }
 
-    /// 🟢 Chat
-    if (order.status == "accepted") {
-      return ElevatedButton(
-        onPressed: () {
-          context.push('/chat'); // لاحقاً /chat/:orderId
-        },
-        child: const Text("Chat"),
-      );
-    }
+  
 
     /// ❌ Nothing
     return const SizedBox();

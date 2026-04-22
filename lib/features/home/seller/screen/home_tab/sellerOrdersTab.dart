@@ -29,12 +29,14 @@ class SellerOrdersTab extends ConsumerWidget {
                 ),
               );
             }
+            final filteredOrders =
+                  orders.where((o) => o.status != "accepted").toList();
 
             return ListView.builder(
               padding: const EdgeInsets.all(12),
-              itemCount: orders.length,
+              itemCount: filteredOrders.length,
               itemBuilder: (context, index) {
-                final order = orders[index];
+                final order = filteredOrders[index];
 
                 return Card(
                   color: const Color(0xff1e293b),
@@ -54,7 +56,7 @@ class SellerOrdersTab extends ConsumerWidget {
                       icon: const Icon(Icons.more_vert, color: Colors.white),
 
                       onSelected: (value) async {
-                        await _updateStatus(order.id, value);
+                        await _updateStatus(ref, order.id, value, order.buyerId, order.sellerId);
                       },
 
                       itemBuilder: (context) => const [
@@ -92,10 +94,15 @@ class SellerOrdersTab extends ConsumerWidget {
     );
   }
 
-  Future<void> _updateStatus(String orderId, String status) async {
-    await FirebaseFirestore.instance
-        .collection('orders')
-        .doc(orderId)
-        .update({'status': status});
-  }
+  Future<void> _updateStatus(
+  WidgetRef ref,
+  String orderId,
+  String status,
+  String buyerId,
+  String sellerId,
+) async {
+  await ref
+      .read(orderRepoProvider)
+      .updateStatus(orderId, status, buyerId, sellerId);
+}
 }

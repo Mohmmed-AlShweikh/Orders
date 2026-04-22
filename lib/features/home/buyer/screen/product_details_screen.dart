@@ -132,6 +132,7 @@ class ProductDetailsScreen extends ConsumerWidget {
                                 price: product.price,
                                 status: "pending",
                                 createdAt: DateTime.now(),
+                                productTitle: product.title,
                               );
 
                               await OrderRepository().createOrder(order);

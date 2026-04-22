@@ -43,6 +43,7 @@ class _MainScaffoldState extends State<MainScaffold> {
   @override
   Widget build(BuildContext context) {
     final index = getCurrentIndex(context);
+    
 
     return Scaffold(
       body: widget.child,

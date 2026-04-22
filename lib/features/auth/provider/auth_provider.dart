@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:orders/features/auth/provider/auth_controller.dart';
 import '../data/auth_repository.dart';
@@ -20,6 +21,9 @@ final authControllerProvider =
   final repo = ref.watch(authRepoProvider);
   return AuthController(repo);
 });
+
+
+
 
 
 
