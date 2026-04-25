@@ -48,7 +48,7 @@ This app allows merchants to manage their products and orders, while customers c
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="./images/one.jpg" width="220"/>
+  <img src="./images/one.png" width="220"/>
   <img src="./images/two.jpg" width="220"/>
   <img src="./images/three.jpg" width="220"/>
 </p>
