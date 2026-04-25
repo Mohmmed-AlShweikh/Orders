@@ -60,16 +60,16 @@ This app allows merchants to manage their products and orders, while customers c
 </p>
 
 <p align="center">
-  <img src="./images/seven.jpg" width="220"/>
-  <img src="./images/eight.jpg" width="220"/>
-  <img src="./images/nine.jpg" width="220">
+  <img src="images/seven.jpg" width="220"/>
+  <img src="images/eight.jpg" width="220"/>
+  <img src="images/nine.jpg" width="220">
 </p>
 
 <p align="center">
-  <img src="./images/ten.jpg" width="220"/>
-  <img src="./images/eleven.jpg" width="220"/>
-  <img src="./images/tweleve.jpg" width="220">
-  <img src="./images/thirtyeen.jpg" width="220">
+  <img src="images/ten.jpg" width="220"/>
+  <img src="images/eleven.jpg" width="220"/>
+  <img src="images/tweleve.jpg" width="220">
+  <img src="images/thirtyeen.jpg" width="220">
 </p>
 
 
