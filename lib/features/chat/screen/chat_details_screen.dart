@@ -13,7 +13,7 @@ class ChatDetailScreen extends ConsumerStatefulWidget {
   const ChatDetailScreen({
     super.key,
     required this.orderId,
-    required this.otherUserId, required String otherUserName,
+    required this.otherUserId,
   });
 
   @override
@@ -69,8 +69,11 @@ class _ChatDetailScreenState extends ConsumerState<ChatDetailScreen> {
       backgroundColor: const Color(0xff0f172a),
 
       appBar: AppBar(
+        iconTheme: const IconThemeData(
+    color: Colors.white, // لون زر الرجوع
+  ),
         backgroundColor: const Color(0xff0f172a),
-        title: Text(otherUserName ?? "Loading..."),
+        title: Text(otherUserName ?? "Loading...",style: const TextStyle(color: Colors.white),),
       ),
 
       body: Column(

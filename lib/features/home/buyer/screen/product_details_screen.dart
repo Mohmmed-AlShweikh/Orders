@@ -33,11 +33,12 @@ class ProductDetailsScreen extends ConsumerWidget {
               backgroundColor: const Color(0xff0f172a),
 
               appBar: AppBar(
+                iconTheme: const IconThemeData(color: Colors.white),
                 title: Text(
                   product.title,
                   style: const TextStyle(color: Colors.white),
                 ),
-                backgroundColor: const Color.fromARGB(255, 110, 130, 176),
+                backgroundColor: const Color(0xff0f172a),
               ),
 
               body: SingleChildScrollView(

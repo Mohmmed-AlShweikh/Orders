@@ -14,7 +14,7 @@ class ProductCard extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(16),
         onTap: () {
-          context.push('/products/${product.id}');
+          context.push('/details/${product.id}');
         },
         child: Container(
           margin: const EdgeInsets.all(8),

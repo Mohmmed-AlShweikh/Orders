@@ -90,8 +90,8 @@ class ChatsScreen extends ConsumerWidget {
 
                       onTap: () {
                         context.push(
-                          '/chat/${order.id}',
-                          extra: otherUserId,
+                          '/chat-detail/${order.id}/$otherUserId',
+                        
                         );
                       },
                     ),

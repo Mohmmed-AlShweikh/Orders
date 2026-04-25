@@ -6,7 +6,10 @@ import 'package:orders/core/router/router_refresh.dart';
 import 'package:orders/features/auth/screen/login_screen.dart';
 import 'package:orders/features/auth/screen/register_screen.dart';
 import 'package:orders/features/auth/screen/splash_screen.dart';
+import 'package:orders/features/chat/screen/chat_details_screen.dart';
 import 'package:orders/features/chat/screen/chat_list_screen.dart';
+import 'package:orders/features/home/buyer/data/product_model.dart';
+import 'package:orders/features/home/buyer/screen/product_details_screen.dart';
 import 'package:orders/features/home/home_screen.dart';
 import 'package:orders/features/profile/profile_screen.dart';
 import 'package:orders/features/settings/settings_screen.dart';
@@ -68,6 +71,26 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: '/register',
         builder: (_, __) => const RegisterScreen(),
       ),
+      GoRoute(
+  path: '/chat-detail/:orderId/:otherUserId',
+  builder: (context, state) {
+    final orderId = state.pathParameters['orderId']!;
+    final otherUserId = state.pathParameters['otherUserId']!;
+
+    return ChatDetailScreen(
+      orderId: orderId,
+      otherUserId: otherUserId,
+    );
+  },
+),
+ GoRoute(
+        path: '/details/:id',
+        builder: (context, state) {
+          final productId = state.pathParameters['id']!;
+          return ProductDetailsScreen(productId: productId);
+        },
+      ),
+      
 
       ShellRoute(
         builder: (context, state, child) {
