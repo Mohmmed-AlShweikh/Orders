@@ -42,7 +42,7 @@ This app allows merchants to manage their products and orders, while customers c
 
 - Flutter
 - Dart
-- Firebase 
+- Firebase (Auth, Firestore, Realtime Database) 
 - State Management Riverpod
 
 ## 📸 Screenshots
